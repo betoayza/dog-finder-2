@@ -11,10 +11,17 @@ export const AllBreeds = ({ breeds }) => {
       <h2>Breeds</h2>
       <div
         className={"row row-cols-auto m-1"}
-        style={{ }}
+        style={{ display: "flex", justifyContent: "center" }}
       >
         {Object.entries(breeds).map(([key, value], index) => {
-          return <CardBreed className={"col"} key={index} breed={key} subBreeds={value} />;
+          return (
+            <CardBreed
+              className={"col"}
+              key={index}
+              breed={key}
+              subBreeds={value}
+            />
+          );
         })}
       </div>
     </div>

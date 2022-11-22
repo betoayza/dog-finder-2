@@ -58,13 +58,13 @@ export const Form = () => {
   return modal ? (
     <Modal>
       {result.length ? (
-        <div>
+        <div style={{ maxHeight: "100vh" }}>
           <AlbumBreed
             images={result}
             breed={form.breed}
             subBreed={form.subBreed}
           />
-          <button className={"btn btn-danger"} onClick={handleClose}>
+          <button className={"btn btn-danger mb-3"} onClick={handleClose}>
             Close
           </button>
         </div>
@@ -89,6 +89,9 @@ export const Form = () => {
           name={"breed"}
           onChange={handleChange}
           className={"form-control mb-1"}
+          placeholder={"Breed..."}
+          style={{ color: "brown" }}
+          required
         />
         <input
           type="text"
@@ -96,6 +99,9 @@ export const Form = () => {
           name={"subBreed"}
           onChange={handleChange}
           className={"form-control mb-1"}
+          placeholder={"Sub Breed..."}
+          style={{ color: "brown" }}
+          required
         />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button type="submit" className={"btn btn-primary"}>
