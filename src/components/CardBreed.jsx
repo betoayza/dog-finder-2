@@ -6,7 +6,7 @@ export const CardBreed = ({ breed, subBreeds }) => {
 
   return (
     <div>
-      <div className="card p-2 m-1" style={{ width: "200px", height: "250px" }}>
+      <div className="card p-2 m-1" style={{ width: "auto", height: "250px" }}>
         <img src="..." className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title" style={{ color: "#6610f2" }}>

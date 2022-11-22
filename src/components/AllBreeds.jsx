@@ -4,11 +4,19 @@ import { CardBreed } from "./CardBreed";
 export const AllBreeds = ({ breeds }) => {
   console.log(breeds);
 
+  // style={{ display: "grid", placeItems: "center", gridTemplateColumns: "auto auto auto" }}
+
   return (
-    <div style={{display: "grid", placeItems: "center", gridTemplateColumns: "auto auto auto"}}>
-      {Object.entries(breeds).map(([key, value], index) => {
-        return <CardBreed key={index} breed={key} subBreeds={value} />;
-      })}
+    <div className={"container text-center"}>
+      <h2>Breeds</h2>
+      <div
+        className={"row row-cols-auto m-3"}
+        style={{ }}
+      >
+        {Object.entries(breeds).map(([key, value], index) => {
+          return <CardBreed className={"col"} key={index} breed={key} subBreeds={value} />;
+        })}
+      </div>
     </div>
   );
 };
