@@ -10,7 +10,7 @@ export const AllBreeds = ({ breeds }) => {
     <div className={"container text-center"}>
       <h2>Breeds</h2>
       <div
-        className={"row row-cols-auto m-3"}
+        className={"row row-cols-auto m-1"}
         style={{ }}
       >
         {Object.entries(breeds).map(([key, value], index) => {
