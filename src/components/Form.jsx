@@ -55,10 +55,11 @@ export const Form = () => {
       });
   };
 
+  
   return modal ? (
     <Modal>
       {result.length ? (
-        <div style={{ maxHeight: "100vh" }}>
+        <div style={{ maxHeight: "100vh"  }}>
           <AlbumBreed
             images={result}
             breed={form.breed}
@@ -90,7 +91,7 @@ export const Form = () => {
           onChange={handleChange}
           className={"form-control mb-1"}
           placeholder={"Breed..."}
-          style={{ color: "brown" }}
+          style={{ color: "brown", textTransform: "lowercase" }}
           required
         />
         <input
@@ -99,8 +100,8 @@ export const Form = () => {
           name={"subBreed"}
           onChange={handleChange}
           className={"form-control mb-1"}
-          placeholder={"Sub Breed..."}
-          style={{ color: "brown" }}
+          placeholder={"Sub breed..."}
+          style={{ color: "brown", textTransform: "lowercase" }}
           required
         />
         <div style={{ display: "flex", justifyContent: "center" }}>
