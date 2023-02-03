@@ -35,31 +35,50 @@ export const Form = () => {
       timeout: 3000,
     };
 
-    await axios
-      .request(
-        `https://dog.ceo/api/breed/${form.breed}/${form.subBreed}/images/random/10`,
-        options
-      )
-      .then((res) => {
-        console.log(res.data);
-        if (res.data["status"] === "success") {
+    form.breed &&
+      form.subBreed &&
+      (await axios
+        .request(
+          `https://dog.ceo/api/breed/${form.breed}/${form.subBreed}/images/random/10`,
+          options
+        )
+        .then((res) => {
+          console.log(res.data);
+          if (res.data["status"] === "success") {
+            setModal(true);
+            setResult(res.data["message"]);
+          } else {
+            setModal(true);
+          }
+        })
+        .catch((error) => {
+          error;
           setModal(true);
-          setResult(res.data["message"]);
-        } else {
+        }));
+
+    form.breed &&
+      form.subBreed === "" &&
+      (await axios
+        .request(`https://dog.ceo/api/breed/${form.breed}/images`, options)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data["status"] === "success") {
+            setModal(true);
+            setResult(res.data["message"].slice(1, 10));
+          } else {
+            setModal(true);
+          }
+        })
+        .catch((error) => {
+          error;
           setModal(true);
-        }
-      })
-      .catch((error) => {
-        error;
-        setModal(true);
-      });
+        }));
   };
 
-  
   return modal ? (
     <Modal>
       {result.length ? (
-        <div style={{ maxHeight: "100vh"  }}>
+        <div style={{ maxHeight: "100vh" }}>
           <AlbumBreed
             images={result}
             breed={form.breed}
@@ -100,9 +119,8 @@ export const Form = () => {
           name={"subBreed"}
           onChange={handleChange}
           className={"form-control mb-1"}
-          placeholder={"Sub breed..."}
-          style={{ color: "brown", textTransform: "lowercase" }}
-          required
+          placeholder={"Sub breed...?"}
+          style={{ color: "brown", textTransform: "lowercase" }}          
         />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button type="submit" className={"btn btn-primary"}>

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-
 export const CardBreed = ({ breed, subBreeds }) => {
   const [image, setImage] = useState(null);
   //   console.log(breed);
@@ -36,7 +35,12 @@ export const CardBreed = ({ breed, subBreeds }) => {
   return (
     <div>
       <div className="card p-2 m-1" style={{ width: "200px", height: "300px" }}>
-        <img src={image} className="card-img-top" style={{height: "120px", width: "auto"}} alt="..." />
+        <img
+          src={image}
+          className="card-img-top"
+          style={{ height: "120px", width: "auto" }}
+          alt="..."
+        />
         <div className="card-body">
           <h5 className="card-title" style={{ color: "#6610f2" }}>
             {breed}
