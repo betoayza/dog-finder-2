@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { AllBreeds } from "./AllBreeds";
+import { AllBreeds } from "../pure/AllBreeds";
 import { Form } from "./Form";
 
 export const DogFinder = () => {
@@ -8,20 +8,13 @@ export const DogFinder = () => {
 
   useEffect(() => {
     const getAllBreeds = async () => {
-      const options = {
-        headers: {
-          // "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "*",
-          // "Access-Control-Allow-Headers": "*",
-          //Accept: "application/json",
-        },
+      const options = {       
         timeout: 3000,
       };
 
       await axios
         .request(`https://dog.ceo/api/breeds/list/all`, options)
         .then((res) => {
-          console.log(res.data.message);
           if (res.data) {
             setBreeds(res.data.message);
           }

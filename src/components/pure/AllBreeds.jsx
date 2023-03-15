@@ -1,11 +1,7 @@
 import React from "react";
-import { CardBreed } from "./CardBreed";
+import { CardBreed } from "../container/CardBreed";
 
 export const AllBreeds = ({ breeds }) => {
-  console.log(breeds);
-
-  // style={{ display: "grid", placeItems: "center", gridTemplateColumns: "auto auto auto" }}
-
   return (
     <div className={"container text-center"}>
       <h2>Breeds</h2>

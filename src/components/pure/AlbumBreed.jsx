@@ -2,9 +2,7 @@ import React from "react";
 
 export const AlbumBreed = ({ images, breed, subBreed }) => {
   return (
-    <div
-      className={"text-center container p-2"}      
-    >
+    <div className={"text-center container p-2"}>
       <h2 style={{ color: "white" }}>
         {breed} {subBreed}
       </h2>
@@ -21,8 +19,7 @@ export const AlbumBreed = ({ images, breed, subBreed }) => {
               key={index}
               src={image}
               alt="Image"
-              className={"img-fluid m-2"}
-              style={{ maxHeight: "200px", maxWidth: "200px" }}
+              className={"img-fluid m-2 img-thumbnail rounded"}
             />
           );
         })}

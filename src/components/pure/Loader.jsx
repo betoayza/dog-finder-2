@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "./Modal";
-import "./Loader.css";
+import "../../styles/Loader.css";
 
 export const Loader = () => {
   return (

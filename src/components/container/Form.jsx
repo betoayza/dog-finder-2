@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { AlbumBreed } from "./AlbumBreed";
-import { Modal } from "./Modal";
+import { AlbumBreed } from "../pure/AlbumBreed";
+import { Modal } from "../pure/Modal";
 import axios from "axios";
 
 const initialForm = {
@@ -22,16 +22,14 @@ export const Form = () => {
     setResult([]);
   };
 
+  const handleReset = () => {
+    setForm(initialForm);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const options = {
-      headers: {
-        // "Content-Type": "application/json",
-        // "Access-Control-Allow-Origin": "*",
-        // "Access-Control-Allow-Headers": "*",
-        // Accept: "application/json",
-      },
       timeout: 3000,
     };
 
@@ -54,6 +52,9 @@ export const Form = () => {
         .catch((error) => {
           error;
           setModal(true);
+        })
+        .finally(() => {
+          handleReset();
         }));
 
     form.breed &&
@@ -120,7 +121,7 @@ export const Form = () => {
           onChange={handleChange}
           className={"form-control mb-1"}
           placeholder={"Sub breed...?"}
-          style={{ color: "brown", textTransform: "lowercase" }}          
+          style={{ color: "brown", textTransform: "lowercase" }}
         />
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button type="submit" className={"btn btn-primary"}>
